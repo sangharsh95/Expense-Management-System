@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Expense Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <h1>Expense Management - Dashboard</h1>
+        <div>
+            <span id="dashboardRole"></span>
+            <button type="button" id="logoutBtn" class="primary" onclick="logout && logout()">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Employee Section -->
+        <section id="employeeSection" class="section" style="display:none;">
+            <h2>Submit Expense</h2>
+            <form id="expenseForm" class="card">
+                <input type="number" id="expAmount" placeholder="Amount" required min="0" step="0.01">
+                <input type="text" id="expCategory" placeholder="Category" required>
+                <input type="text" id="expDesc" placeholder="Description" required>
+                <input type="date" id="expDate" required>
+                <button type="submit" class="primary">Submit Expense</button>
+            </form>
+
+            <h3>Your Expenses</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeExpenseTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Manager Section -->
+        <section id="managerSection" class="section" style="display:none;">
+            <h2>Pending Expenses for Approval</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="managerExpenseTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="adminSection" class="section" style="display:none;">
+            <h2>All Users</h2>
+            <ul id="allUsers"></ul>
+
+            <h2>All Expenses</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminExpenseTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

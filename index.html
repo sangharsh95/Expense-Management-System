@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login - Expense Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  /* Your existing styles unchanged */
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Background with subtle gradient and dynamic overlay animation */
+  body, html {
+    height: 100%;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+
+  /* Glassmorphism form container */
+  .form-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 50px;
+    width: 380px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 2.2rem;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  }
+
+  /* Floating labels container */
+  .input-group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  /* Inputs */
+  input, select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus, select:focus {
+    background: rgba(255,255,255,0.35);
+    box-shadow: 0 0 10px #fdbb2d;
+  }
+
+  /* Floating label */
+  label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    color: #f0e7dbcc;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.3s ease all;
+    font-size: 1rem;
+    background: transparent;
+    padding: 0 4px;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  select:focus + label,
+  select:not([value=""]) + label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: #fdbb2d;
+    font-weight: 600;
+    background: rgba(0,0,0,0.25);
+    border-radius: 4px;
+  }
+
+  /* Button */
+  button {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fdbb2d, #b21f1f);
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px #fdbb2dcc;
+  }
+
+  button:hover {
+    box-shadow: 0 8px 30px #fdbb2dff;
+    transform: translateY(-3px);
+  }
+
+  /* Bottom text */
+  .form-container p {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #f0e7dbcc;
+  }
+
+  .form-container p a {
+    color: #fdbb2d;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .form-container p a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-container" role="main" aria-label="Login Form">
+  <h1>Welcome to Expense Manager</h1>
+  <form id="loginForm" novalidate>
+    <div class="input-group">
+      <input type="email" id="loginEmail" placeholder=" " required aria-required="true" aria-label="Email" />
+      <label for="loginEmail">Email</label>
+    </div>
+    <div class="input-group">
+      <input type="password" id="loginPassword" placeholder=" " required aria-required="true" aria-label="Password" />
+      <label for="loginPassword">Password</label>
+    </div>
+    <div class="input-group">
+      <select id="loginRole" required aria-required="true" aria-label="Role">
+        <option value="" selected disabled></option>
+        <option value="Employee">Employee</option>
+        <option value="Manager">Manager</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <label for="loginRole">Select Role</label>
+    </div>
+    <button type="submit" aria-label="Login Button">Log In</button>
+  </form>
+  <p>Don't have an account? <a href="register.html">Register Here</a></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

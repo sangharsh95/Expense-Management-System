@@ -30,8 +30,8 @@
 
   @keyframes gradientBG {
     0% {background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
   }
 
   /* Glassmorphism form container */
@@ -83,6 +83,12 @@
   input:focus, select:focus {
     background: rgba(255,255,255,0.35);
     box-shadow: 0 0 10px #fdbb2d;
+  }
+
+  /* Make select options visible */
+  select option {
+    color: #000;
+    background-color: #fff;
   }
 
   /* Floating label */
